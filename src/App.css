@@ -3,6 +3,16 @@ ul {
   padding-left: 30px;
 }
 
+.board{
+  padding: 0;
+  margin: 0;
+  list-style-type:none;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: flex-start;
+  align-items:flex-start;
+  float: left;
+}
 .board-row:after {
   clear: both;
   content: "";
@@ -11,6 +21,18 @@ ul {
 .status {
   margin-bottom: 10px;
   font-size: 25px;
+}
+.three-board{
+  width: 380px;
+}
+.four-board{
+  width: 470px;
+}
+.five-board{
+  width: 500px;
+}
+.six-board{
+  width: 600px;
 }
 .square {
   background: #fff;
