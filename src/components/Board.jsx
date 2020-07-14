@@ -96,7 +96,7 @@ export default function Board({ value }) {
     const secondDia = getSecondDiagonal(squares);
     const lines = [...colsNum, ...firstDia, ...secondDia]
     if (isWin(lines)) {
-      alert(1)
+      
       setState({
         xIsNext: true,
         squares:state.squares.map((item) => {
@@ -106,9 +106,12 @@ export default function Board({ value }) {
     }
     return false;
   }
+  
   React.useEffect(() => {
-    calculateWinner(state.squares);
+    //calculateWinner(state.squares);
   }, [state]);
+
+
   let status = "Следующий игрок: " + (state.xIsNext ? "X" : "O");
 
   function renderBoard(arr) {
