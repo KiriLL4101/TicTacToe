@@ -14,6 +14,7 @@ export default function StartGame({ start }) {
             start(state);
         }else{
             alert('Размер поля не может быть пустым и должен быть больше 3х')
+            setState('')
         }
         e.preventDefault();
     }

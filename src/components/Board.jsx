@@ -1,20 +1,24 @@
 import React from "react";
 import Square from "./Square";
+import useSound from 'use-sound';
+import crossSfx from '../assets/audio/cross.mp3';
+import zeroSfx from '../assets/audio/zero.mp3';
 
 export default function Board({ value }) {
   const [state, setState] = React.useState({
     squares: value,
     xIsNext: true,
   });
-
+  const [cross] = useSound(crossSfx);
+  const [zero] = useSound(zeroSfx);
   function handleClick(i, j) {
     const squares = state.squares.slice();
-
     squares[i][j] = state.xIsNext ? "X" : "O";
     setState({
       squares: squares,
       xIsNext: !state.xIsNext,
     });
+    return state.xIsNext ? cross() : zero();
   }
   function renderSquare(i, j) {
     return (
@@ -23,6 +27,7 @@ export default function Board({ value }) {
         onClick={() => {
           handleClick(i, j);
         }}
+        
       />
     );
   }
@@ -106,7 +111,7 @@ export default function Board({ value }) {
     }
     return false;
   }
-  
+
   React.useEffect(() => {
     //calculateWinner(state.squares);
   }, [state]);
